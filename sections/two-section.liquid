@@ -1,0 +1,648 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="two-banners-section--split{% if section.settings.full_width %} two-banners-section--full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="two-banners-split-container{% if section.settings.banner_2_heading == blank %} two-banners--single{% endif %}">
+    <!-- Left Banner -->
+    <div class="two-banners-split-item">
+      {% if section.settings.banner_1_link != blank %}
+        <a href="{{ section.settings.banner_1_link }}" class="banner-link">
+      {% endif %}
+      {% if section.settings.banner_1_image_desktop != blank or section.settings.banner_1_image_mobile != blank %}
+        <picture class="banner-bg-image{% if section.settings.banner_1_heading != blank %} banner-bg-image-after{% endif %}">
+          <source
+            media="(max-width: 767px)"
+            srcset="{{ section.settings.banner_1_image_mobile | image_url: width: 1500 }}"
+          >
+          <source
+            media="(min-width: 768px)"
+            srcset="{{ section.settings.banner_1_image_desktop | image_url: width: 3000 }}"
+          >
+          <img
+            src="{{ section.settings.banner_1_image_desktop | image_url: width: 3000 }}"
+            alt="{{ section.settings.banner_1_heading | escape }}"
+            loading="lazy"
+            width="1500"
+            height="1000"
+          >
+        </picture>
+      {% else %}
+        <div class="banner-image-placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% endif %}
+      <div class="banner-overlay-content">
+        <div class="banner-label"></div>
+        {% if section.settings.banner_1_heading != blank %}
+          <h3 class="banner-heading h1">{{ section.settings.banner_1_heading | escape }}</h3>
+        {% endif %}
+        {% if section.settings.banner_1_text != blank %}
+          <div class="banner-text subtitle">{{ section.settings.banner_1_text }}</div>
+        {% endif %}
+        {% if section.settings.banner_1_button_label != blank %}
+          <div class="banner-button">
+            {%- assign button_1_style = section.settings.banner_1_button_style -%}
+            <span class="{% if button_1_style == 'secondary' %}button--simple-classy{% else %}button--white-rounded{% endif %}">
+              {{ section.settings.banner_1_button_label | escape }}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+      {% if section.settings.banner_1_link != blank %}
+        </a>
+      {% endif %}
+    </div>
+    {% if section.settings.banner_2_heading != blank %}
+      <!-- Right Banner -->
+      <div class="two-banners-split-item">
+        {% if section.settings.banner_2_link != blank %}
+          <a href="{{ section.settings.banner_2_link }}" class="banner-link">
+        {% endif %}
+        {% if section.settings.banner_2_image_desktop != blank or section.settings.banner_2_image_mobile != blank %}
+          <picture class="banner-bg-image{% if section.settings.banner_2_heading != blank %} banner-bg-image-after{% endif %}">
+            <source
+              media="(max-width: 767px)"
+              srcset="{{ section.settings.banner_2_image_mobile | image_url: width: 767 }}"
+            >
+            <source
+              media="(min-width: 768px)"
+              srcset="{{ section.settings.banner_2_image_desktop | image_url: width: 1500 }}"
+            >
+            <img
+              src="{{ section.settings.banner_2_image_desktop | image_url: width: 1500 }}"
+              alt="{{ section.settings.banner_2_heading | escape }}"
+              loading="lazy"
+              width="1500"
+              height="1000"
+            >
+          </picture>
+        {% else %}
+          <div class="banner-image-placeholder">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {% endif %}
+        <div class="banner-overlay-content">
+          <div class="banner-label"></div>
+          {% if section.settings.banner_2_heading != blank %}
+            <h3 class="banner-heading h1">{{ section.settings.banner_2_heading | escape }}</h3>
+          {% endif %}
+          {% if section.settings.banner_2_text != blank %}
+            <div class="banner-text subtitle">{{ section.settings.banner_2_text }}</div>
+          {% endif %}
+          {% if section.settings.banner_2_button_label != blank %}
+            <div class="banner-button">
+              {%- assign button_2_style = section.settings.banner_2_button_style -%}
+              <span class="{% if button_2_style == 'secondary' %}button--simple-classy{% else %}button--white-rounded{% endif %}">
+                {{ section.settings.banner_2_button_label | escape }}
+              </span>
+            </div>
+          {% endif %}
+        </div>
+        {% if section.settings.banner_2_link != blank %}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+    .two-banners-section--split {
+      margin: 0;
+      padding: 0;
+    }
+    .two-banners-split-container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: calc(100vh - 100px);
+    }
+    .two-banners--single .two-banners-split-item {
+      flex-basis: 100%;
+    }
+    .two-banners-split-item {
+      position: relative;
+      flex: 1 1 50%;
+      min-width: 0;
+      min-height: 82vh;
+      min-height: 82dvh;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .banner-bg-image img {
+      display: block !important;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      z-index: 1;
+    }
+    .banner-bg-image-after::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(253,239,230,0.1) 20%,
+        rgba(253,239,230,0.3) 40%,
+        rgba(253,239,230,0.6) 60%,
+        rgba(253,239,230,0.85) 80%,
+        rgba(253,239,230,1) 100%
+      );
+      z-index: 1;
+    }
+    .banner-link {
+      text-decoration: none;
+    }
+    .banner-overlay-content {
+      line-height: .2;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #203059; /* Midnight Craving - dark blue for high contrast */
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      background: transparent;
+    }
+    .banner-overlay-content * {
+      text-decoration: none;
+    }
+    .banner-overlay-content > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .banner-overlay-content.animate-in > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .banner-overlay-content.animate-in > *:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    .banner-overlay-content.animate-in > *:nth-child(2) {
+      transition-delay: 0.3s;
+    }
+    .banner-overlay-content.animate-in > *:nth-child(3) {
+      transition-delay: 0.5s;
+    }
+    .banner-overlay-content.animate-in > *:nth-child(4) {
+      transition-delay: 0.7s;
+    }
+    .banner-label {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #fff;
+      border-radius: 20px;
+      display: inline-block;
+      animation-delay: 0.2s;
+    }
+    .banner-heading.h1 {
+      font-size: 4.2rem;
+      color: #913645;
+      font-weight: 600;
+      margin: 0;
+      animation-delay: 0.4s;
+    }
+    .banner-text.subtitle {
+      font-size: 1.4rem;
+      color: #0B4741; /* Curly Parsley - secondary dark text */
+      animation-delay: 0.6s;
+    }
+    .banner-button {
+      padding: 8px 28px;
+      margin-top: 0;
+      animation-delay: 0.8s;
+      font-family: 'PPEditorialNew';
+    }
+    .button--white-rounded {
+      background: linear-gradient(135deg, #FDEFE6 0%, #F1DAC0 100%);
+      border-radius: 50px;
+      padding: 14px 32px;
+      color: black;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.5px;
+      box-shadow:
+        0 4px 15px rgba(146, 169, 213, 0.2),
+        0 2px 8px rgba(32, 48, 89, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(201, 210, 176, 0.3);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      min-height: 48px;
+      backdrop-filter: blur(10px);
+    }
+
+    .button--white-rounded::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .button--white-rounded:hover::before {
+      left: 100%;
+    }
+
+    .button--white-rounded:hover {
+      background: linear-gradient(135deg, #F1DAC0 0%, #E0B4A7 100%);
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 25px rgba(146, 169, 213, 0.3),
+        0 4px 15px rgba(32, 48, 89, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      border-color: rgba(201, 210, 176, 0.5);
+    }
+
+    .button--white-rounded:active {
+      transform: translateY(0);
+      box-shadow:
+        0 2px 8px rgba(146, 169, 213, 0.2),
+        0 1px 4px rgba(32, 48, 89, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    .button--simple-classy {
+      background: #913645;
+      color: #FBEBE2;
+      border: 2px solid #913645;
+      border-radius: 6px;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 44px;
+    }
+  
+    .button--simple-classy:hover {
+      background: #FBEBE2;
+      color: #913645;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(145, 54, 69, 0.25);
+    }
+  
+    .button--simple-classy:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(145, 54, 69, 0.15);
+    }
+
+    @media screen and (max-width: 900px) {
+      .two-banners-split-container {
+        flex-direction: column;
+        height: 100%;
+      }
+      .two-banners-split-item {
+        height: 100%;
+      }
+      .banner-heading.h1 {
+        font-size: 2.8rem;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .banner-heading.h1 {
+        font-size: 2.2rem;
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set up Intersection Observer
+    const options = {
+      root: null, // viewport
+      rootMargin: '0px',
+      threshold: 0.2 // 20% of the element visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add animation class when element enters viewport
+          entry.target.classList.add('animate-in');
+          // Stop observing once animation is triggered
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    // Observe all banner overlay content elements
+    const overlayContents = document.querySelectorAll('.banner-overlay-content');
+    overlayContents.forEach(content => {
+      observer.observe(content);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Two Banners",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Two Banners"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "ambient",
+          "label": "Ambient"
+        },
+        {
+          "value": "fixed",
+          "label": "Fixed"
+        },
+        {
+          "value": "zoom-in",
+          "label": "Zoom in"
+        }
+      ],
+      "default": "none",
+      "label": "Image behavior"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "middle-center",
+      "label": "Content position"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "select",
+      "id": "text_style",
+      "options": [
+        {
+          "value": "body",
+          "label": "Body"
+        },
+        {
+          "value": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "Caption with letter spacing"
+        }
+      ],
+      "default": "body",
+      "label": "Text style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Banner 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_1_image_desktop",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_1_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_1_heading",
+      "label": "Heading",
+      "default": "Every Slice Tells a Story"
+    },
+    {
+      "type": "richtext",
+      "id": "banner_1_text",
+      "label": "Text",
+      "default": "<p>Made from scratch with love and integrity.</p>"
+    },
+    {
+      "type": "text",
+      "id": "banner_1_button_label",
+      "label": "Button label",
+      "default": "Indulge Now"
+    },
+    {
+      "type": "select",
+      "id": "banner_1_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "url",
+      "id": "banner_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "banner_1_overlay",
+      "label": "Show overlay",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Banner 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_2_image_desktop",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_2_image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_2_heading",
+      "label": "Heading",
+      "default": "Freshly Baked, Delivered Locally"
+    },
+    {
+      "type": "richtext",
+      "id": "banner_2_text",
+      "label": "Text",
+      "default": "<p>12-hour pre-order for guaranteed freshness</p>"
+    },
+    {
+      "type": "text",
+      "id": "banner_2_button_label",
+      "label": "Button label",
+      "default": "Discover Our Bakes"
+    },
+    {
+      "type": "select",
+      "id": "banner_2_button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "url",
+      "id": "banner_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "banner_2_overlay",
+      "label": "Show overlay",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Banners",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

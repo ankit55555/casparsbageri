@@ -1,0 +1,142 @@
+{{ 'section-visit-us.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="visit-us section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="visit-us__hero">
+      <h1 class="visit-us__title h1">{{ section.settings.heading | default: "Visit" }}</h1>
+    </div>
+
+    <div class="visit-us__content">
+      <div class="visit-us__details">
+        <div class="visit-us__block">
+          <h2 class="visit-us__label h5">Location</h2>
+          {%- if section.settings.address != blank -%}
+            <div class="visit-us__address">{{ section.settings.address }}</div>
+          {%- endif -%}
+          {%- if section.settings.phone != blank -%}
+            <div class="visit-us__phone">
+              <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '-', '' }}">{{ section.settings.phone }}</a>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="visit-us__block">
+          <h2 class="visit-us__label h5">Hours</h2>
+          {%- if section.settings.hours != blank -%}
+            <div class="visit-us__hours rte">{{ section.settings.hours }}</div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.story != blank -%}
+          <div class="visit-us__block visit-us__block--story">
+            <div class="visit-us__story rte">{{ section.settings.story }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="visit-us__map-container">
+        {%- if section.settings.map_embed != blank -%}
+          <div class="visit-us__map">
+            {{ section.settings.map_embed }}
+          </div>
+        {%- else -%}
+          <div class="visit-us__map-placeholder">
+            <div class="visit-us__map-placeholder-content">
+              <h3 class="h5">Map will appear here</h3>
+              <p>Add your Google Maps embed code in the theme settings</p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Visit Us",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Visit Us",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "123 Indiranagar Main Road\nBangalore, Karnataka 560038\nIndia"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+91 98765 43210"
+    },
+    {
+      "type": "richtext",
+      "id": "hours",
+      "label": "Opening Hours",
+      "default": "<p>Monday – Saturday<br>8:00 AM – 8:00 PM</p><p>Sunday<br>9:00 AM – 6:00 PM</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "story",
+      "label": "About",
+      "default": "<p>European-trained pastry techniques meet Bangalore's discerning palate. Every creation reflects our commitment to authentic flavors and meticulous craftsmanship.</p>"
+    },
+    {
+      "type": "html",
+      "id": "map_embed",
+      "label": "Google Maps Embed Code",
+      "info": "Paste the Google Maps embed code here"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visit Us"
+    }
+  ]
+}
+{% endschema %}

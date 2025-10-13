@@ -1,0 +1,58 @@
+{% schema %}
+{
+  "name": "Store Features",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Store Features"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="store-features">
+  <div class="features-container">
+    <div class="feature">
+      <img src="{{ 'icon-heart.svg' | asset_url }}" alt="Small Batches Icon">
+      <p>SMALL BATCHES<br>MADE DAILY</p>
+    </div>
+    <div class="feature">
+      <img src="{{ 'icon-stopwatch.svg' | asset_url }}" alt="12 Hour Pre-order Icon">
+      <p>10-HOUR<br>PRE-ORDER</p>
+    </div>
+    <div class="feature">
+      <img src="{{ 'icon-map-pin.svg' | asset_url }}" alt="Local Delivery Icon">
+      <p>BANGALORE<br>LOCAL DELIVERY</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.store-features {
+  background: #FDEFE6;
+  padding: 2rem 1rem;
+}
+
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.feature img {
+  width: 40px;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+}
+</style>
+

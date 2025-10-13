@@ -1,0 +1,304 @@
+{{ 'section-visit-bulk.css' | asset_url | stylesheet_tag }}
+
+<section class="visit-bulk-section">
+  <div class="visit-bulk-grid">
+<!-- Visit Us Text -->
+    <div class="visit-bulk-block visit-bulk-text-block visit-text content-container color-{{ section.settings.visit_color_scheme }} gradient">
+      <div class="visit-bulk-text-content">
+        <h2 class="inline-richtext {{ section.settings.visit_heading_size }}">{{ section.settings.visit_heading }}</h2>
+        <div class="rte {{ section.settings.visit_text_style }}">
+          <p>{{ section.settings.visit_text }}</p>
+        </div>
+        <a href="{{ section.settings.visit_button_link }}" class="button{% if section.settings.visit_button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ section.settings.visit_button_label }}</a>
+      </div>
+    </div>
+
+<!-- Visit Us Image -->
+    <div class="visit-bulk-block visit-bulk-image-block visit-image">
+      <div class="visit-bulk-image-container">
+        <div class="visit-bulk-parallax-image" data-parallax-speed="0.1" style="background-image: url('{{ section.settings.visit_image | image_url: width: 1500 }}');"></div>
+      </div>
+    </div>
+
+    <!-- Bulk Order Image -->
+    <div class="visit-bulk-block visit-bulk-image-block bulk-image">
+      <div class="visit-bulk-image-container">
+        <div class="visit-bulk-parallax-image" data-parallax-speed="0.1" style="background-image: url('{{ section.settings.bulk_image | image_url: width: 1500 }}');"></div>
+      </div>
+    </div>
+
+    <!-- Bulk Order Text -->
+    <div class="visit-bulk-block visit-bulk-text-block bulk-text content-container color-{{ section.settings.bulk_color_scheme }} gradient">
+      <div class="visit-bulk-text-content">
+        <h2 class="inline-richtext {{ section.settings.bulk_heading_size }}">{{ section.settings.bulk_heading }}</h2>
+        <div class="rte {{ section.settings.bulk_text_style }}">
+          <p>{{ section.settings.bulk_text }}</p>
+        </div>
+        <a href="{{ section.settings.bulk_button_link }}" class="button{% if section.settings.bulk_button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ section.settings.bulk_button_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all parallax image elements
+  const parallaxElements = document.querySelectorAll('.visit-bulk-parallax-image[data-parallax-speed]');
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+  
+  // Check if element is in viewport
+  function isInViewport(element) {
+    const rect = element.parentElement.parentElement.getBoundingClientRect();
+    return (
+      rect.bottom > 0 &&
+      rect.top < (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+  
+  // Update parallax position
+  function updateParallax() {
+    parallaxElements.forEach(element => {
+      if (isInViewport(element)) {
+        const container = element.parentElement.parentElement;
+        const containerRect = container.getBoundingClientRect();
+        const containerCenter = containerRect.top + (containerRect.height / 2);
+        const windowCenter = window.innerHeight / 2;
+        const distanceFromCenter = containerCenter - windowCenter;
+        
+        // Get parallax speed from data attribute or use default
+        const speed = parseFloat(element.dataset.parallaxSpeed || 0.3);
+        
+        // Calculate transform based on scroll position
+        const translateY = distanceFromCenter * speed;
+        
+        // Apply transform to the image
+        element.style.transform = `translateY(${translateY}px)`;
+      }
+    });
+    
+    ticking = false;
+  }
+  
+  // Request animation frame for scroll event
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  // Initial update
+  updateParallax();
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', onScroll, { passive: true });
+  
+  // Update on resize for responsive behavior
+  window.addEventListener('resize', updateParallax, { passive: true });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Visit & Bulk Block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Visit Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "visit_image",
+      "label": "Visit Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "visit_heading",
+      "label": "Visit Heading",
+      "default": "Visit Us"
+    },
+    {
+      "type": "select",
+      "id": "visit_heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra large"
+        },
+        {
+          "value": "hxxl",
+          "label": "XX-Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "visit_text",
+      "label": "Visit Description",
+      "default": "Planning to visit? Check out our operating hours and drop by!"
+    },
+    {
+      "type": "select",
+      "id": "visit_text_style",
+      "options": [
+        {
+          "value": "body",
+          "label": "Body"
+        },
+        {
+          "value": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "Caption with letter spacing"
+        }
+      ],
+      "default": "body",
+      "label": "Text style"
+    },
+    {
+      "type": "text",
+      "id": "visit_button_label",
+      "label": "Visit Button Label",
+      "default": "Our Locations"
+    },
+    {
+      "type": "url",
+      "id": "visit_button_link",
+      "label": "Visit Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "visit_button_style_secondary",
+      "default": false,
+      "label": "Use outline button style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "visit_color_scheme",
+      "label": "Visit section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Bulk Order Section"
+    },
+    {
+      "type": "image_picker",
+      "id": "bulk_image",
+      "label": "Bulk Order Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bulk_heading",
+      "label": "Bulk Heading",
+      "default": "Bulk Order"
+    },
+    {
+      "type": "select",
+      "id": "bulk_heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra large"
+        },
+        {
+          "value": "hxxl",
+          "label": "XX-Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bulk_text",
+      "label": "Bulk Description",
+      "default": "Planning for gifting or an office party? Fill out our form to get started."
+    },
+    {
+      "type": "select",
+      "id": "bulk_text_style",
+      "options": [
+        {
+          "value": "body",
+          "label": "Body"
+        },
+        {
+          "value": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "value": "caption-with-letter-spacing",
+          "label": "Caption with letter spacing"
+        }
+      ],
+      "default": "body",
+      "label": "Text style"
+    },
+    {
+      "type": "text",
+      "id": "bulk_button_label",
+      "label": "Bulk Button Label",
+      "default": "Submit the Form"
+    },
+    {
+      "type": "url",
+      "id": "bulk_button_link",
+      "label": "Bulk Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "bulk_button_style_secondary",
+      "default": false,
+      "label": "Use outline button style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "bulk_color_scheme",
+      "label": "Bulk section color scheme",
+      "default": "scheme-2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visit & Bulk Block",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
