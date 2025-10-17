@@ -84,7 +84,7 @@
         "collapsible_tab_9GPL84": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Allergen",
+            "heading": "DIsclaimer",
             "icon": "check_mark",
             "content": "<p>{{ product.metafields.custom.allergens | metafield_tag }}</p>",
             "page": ""
