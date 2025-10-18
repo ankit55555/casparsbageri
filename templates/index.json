@@ -76,7 +76,7 @@
       ],
       "name": "Show Collections",
       "settings": {
-        "title": "Featured Collections",
+        "title": "Collections",
         "heading_size": "h1",
         "description": "",
         "description_style": "body",
