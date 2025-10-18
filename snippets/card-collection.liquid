@@ -4,6 +4,7 @@
   Accepts:
   - card_collection: {Object} Collection Liquid object
   - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - image_shape: {String} Shape of the image. Values are "default", "arch", "blob", etc. Default is "default" (optional)
   - columns: {Number}
   - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
   - wrapper_class: {String} Wrapper class for card (optional)
@@ -49,7 +50,7 @@
     >
       {%- if card_collection.featured_image -%}
         <div class="card__media">
-          <div class="media media--transparent media--hover-effect">
+          <div class="media media--transparent media--hover-effect{% if image_shape != 'default' %} media--{{ image_shape }}{% endif %}">
             <img
               srcset="
                 {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}

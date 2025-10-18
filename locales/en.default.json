@@ -334,6 +334,10 @@
       "view_all": "View all",
       "view_all_label": "View all products in the {{ collection_name }} collection"
     },
+    "featured_collections": {
+      "view_all": "View all",
+      "view_all_label": "View all collections"
+    },
     "collection_list": {
       "view_all": "View all"
     },
