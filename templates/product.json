@@ -45,7 +45,7 @@
             "layout": "horizontal",
             "icon_1": "ruler",
             "heading_1": "",
-            "icon_2": "serving_dish",
+            "icon_2": "none",
             "heading_2": "<strong>Weight: </strong><strong>{{ product.metafields.custom.weight | metafield_tag }}</strong>",
             "icon_3": "heart",
             "heading_3": ""
