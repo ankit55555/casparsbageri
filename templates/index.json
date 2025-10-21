@@ -113,6 +113,66 @@
         "padding_bottom": 0
       }
     },
+    "customer_reviews_3x8brg": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_gE8bLd": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Quality of cake was marvellous. Haven't had so delicious cake in my life. Keep it up with the excellent taste & shape. It was so fresh. It was my wife's birthday & all our friends finished it within few minutes. It was so delicious.",
+            "customer_name": "Tanuj Kumar",
+            "customer_location": "MG Road",
+            "product_name": "Eggless Fresh Mango & Vanilla [1kg]",
+            "review_date": "March 15, 2024"
+          }
+        },
+        "review_cthcPF": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Absolutely amazing! The cake was fresh, delicious, and beautifully decorated. Perfect for our celebration. Will definitely order again!",
+            "customer_name": "Maria Rodriguez",
+            "customer_location": "Los Angeles, CA",
+            "product_name": "Birthday Cake Special",
+            "review_date": "March 10, 2024"
+          }
+        },
+        "review_GxYchU": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Outstanding quality and taste. The delivery was on time and the packaging was perfect. Highly recommend this bakery!",
+            "customer_name": "David Chen",
+            "customer_location": "Toronto, ON",
+            "product_name": "Custom Wedding Cake",
+            "review_date": "March 8, 2024"
+          }
+        }
+      },
+      "block_order": [
+        "review_gE8bLd",
+        "review_cthcPF",
+        "review_GxYchU"
+      ],
+      "name": "Customer Reviews",
+      "settings": {
+        "title": "What Our Customers Say",
+        "subtitle": "",
+        "heading_size": "h1",
+        "columns_desktop": "3",
+        "columns_mobile": "1",
+        "column_alignment": "left",
+        "swipe_on_mobile": false,
+        "background_style": "primary",
+        "color_scheme": "background-1",
+        "button_label": "",
+        "button_link": "",
+        "button_style_secondary": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_da8dUz": {
       "type": "featured-collection",
       "disabled": true,
@@ -216,66 +276,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "customer_reviews_3x8brg": {
-      "type": "customer-reviews",
-      "blocks": {
-        "review_gE8bLd": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "review_text": "Quality of cake was marvellous. Haven't had so delicious cake in my life. Keep it up with the excellent taste & shape. It was so fresh. It was my wife's birthday & all our friends finished it within few minutes. It was so delicious.",
-            "customer_name": "Tanuj Kumar",
-            "customer_location": "MG Road",
-            "product_name": "Eggless Fresh Mango & Vanilla [1kg]",
-            "review_date": "March 15, 2024"
-          }
-        },
-        "review_cthcPF": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "review_text": "Absolutely amazing! The cake was fresh, delicious, and beautifully decorated. Perfect for our celebration. Will definitely order again!",
-            "customer_name": "Maria Rodriguez",
-            "customer_location": "Los Angeles, CA",
-            "product_name": "Birthday Cake Special",
-            "review_date": "March 10, 2024"
-          }
-        },
-        "review_GxYchU": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "review_text": "Outstanding quality and taste. The delivery was on time and the packaging was perfect. Highly recommend this bakery!",
-            "customer_name": "David Chen",
-            "customer_location": "Toronto, ON",
-            "product_name": "Custom Wedding Cake",
-            "review_date": "March 8, 2024"
-          }
-        }
-      },
-      "block_order": [
-        "review_gE8bLd",
-        "review_cthcPF",
-        "review_GxYchU"
-      ],
-      "name": "Customer Reviews",
-      "settings": {
-        "title": "What Our Customers Say",
-        "subtitle": "",
-        "heading_size": "h1",
-        "columns_desktop": "3",
-        "columns_mobile": "1",
-        "column_alignment": "left",
-        "swipe_on_mobile": false,
-        "background_style": "primary",
-        "color_scheme": "background-1",
-        "button_label": "",
-        "button_link": "",
-        "button_style_secondary": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -283,9 +283,9 @@
     "our_commitments_rjnhCi",
     "featured_collections_LNBww8",
     "video_JkcEKC",
+    "customer_reviews_3x8brg",
     "featured_collection_da8dUz",
     "visit_bulk_3Gxg7F",
-    "video_with_text_WbzYdP",
-    "customer_reviews_3x8brg"
+    "video_with_text_WbzYdP"
   ]
 }
