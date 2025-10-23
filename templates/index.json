@@ -104,7 +104,7 @@
         "enable_video_looping": false,
         "hide_video_controls": true,
         "video_height": "auto",
-        "video": "shopify://files/videos/desktop_vid.mp4",
+        "video": "shopify://files/videos/Website.mp4",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "description": "",
         "full_width": true,
