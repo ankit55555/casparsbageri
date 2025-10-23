@@ -26,7 +26,7 @@
         "banner_1_text": "",
         "banner_1_button_label": "Order Now",
         "banner_1_button_style": "secondary",
-        "banner_1_link": "shopify://collections/frontpage",
+        "banner_1_link": "shopify://collections/assorted",
         "banner_1_overlay": false,
         "banner_2_heading": "",
         "banner_2_text": "<p>12-hour pre-order for guaranteed freshness</p>",
@@ -59,7 +59,7 @@
         "collection_hwXwgf": {
           "type": "collection",
           "settings": {
-            "collection": "frontpage"
+            "collection": "assorted"
           }
         },
         "collection_C3aYRC": {
