@@ -53,6 +53,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {}
         },
         "variant_picker": {
