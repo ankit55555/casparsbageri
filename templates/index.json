@@ -101,7 +101,7 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "hide_video_controls": true,
         "video_height": "auto",
         "video": "shopify://files/videos/Website.mp4",
