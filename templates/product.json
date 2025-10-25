@@ -84,7 +84,7 @@
         "collapsible_tab_9GPL84": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "DIsclaimer",
+            "heading": "Storage & Life",
             "icon": "check_mark",
             "content": "<p>{{ product.metafields.custom.allergens | metafield_tag }}</p>",
             "page": ""
@@ -93,7 +93,7 @@
         "collapsible_tab_VjCExE": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Allergen",
+            "heading": "Disclaimer",
             "icon": "check_mark",
             "content": "<p>{{ product.metafields.custom.allergens | metafield_tag }}</p>",
             "page": ""
