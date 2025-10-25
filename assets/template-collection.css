@@ -97,3 +97,10 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+
+@media screen and (max-width: 990px) {
+  .collection__title.title-wrapper {
+    margin-bottom: 0;
+  }
+}
