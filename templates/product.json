@@ -87,7 +87,7 @@
           "settings": {
             "heading": "Storage & Life",
             "icon": "check_mark",
-            "content": "<p>{{ product.metafields.custom.allergens | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.storage_life | metafield_tag }}</p>",
             "page": ""
           }
         },
@@ -96,7 +96,7 @@
           "settings": {
             "heading": "Disclaimer",
             "icon": "check_mark",
-            "content": "<p>{{ product.metafields.custom.allergens | metafield_tag }}</p>",
+            "content": "<p>{{ product.metafields.custom.disclaimer | metafield_tag }}</p>",
             "page": ""
           }
         }
