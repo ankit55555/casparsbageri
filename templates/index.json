@@ -62,16 +62,16 @@
             "collection": "assorted"
           }
         },
-        "collection_C3aYRC": {
-          "type": "collection",
-          "settings": {
-            "collection": "pantry"
-          }
-        },
         "collection_GbM3kf": {
           "type": "collection",
           "settings": {
             "collection": "eggless-vegan"
+          }
+        },
+        "collection_C3aYRC": {
+          "type": "collection",
+          "settings": {
+            "collection": "pantry"
           }
         }
       },
@@ -79,8 +79,8 @@
         "collection_4c6HUm",
         "collection_7jwWkc",
         "collection_hwXwgf",
-        "collection_C3aYRC",
-        "collection_GbM3kf"
+        "collection_GbM3kf",
+        "collection_C3aYRC"
       ],
       "name": "Show Collections",
       "settings": {
