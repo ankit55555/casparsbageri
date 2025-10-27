@@ -26,7 +26,7 @@
         "banner_1_text": "",
         "banner_1_button_label": "",
         "banner_1_button_style": "secondary",
-        "banner_1_link": "shopify://collections/assorted",
+        "banner_1_link": "shopify://collections/assorted-dessert-boxes-bangalore",
         "banner_1_overlay": false,
         "banner_2_heading": "",
         "banner_2_text": "<p>12-hour pre-order for guaranteed freshness</p>",
@@ -59,7 +59,7 @@
         "collection_hwXwgf": {
           "type": "collection",
           "settings": {
-            "collection": "assorted"
+            "collection": "assorted-dessert-boxes-bangalore"
           }
         },
         "collection_GbM3kf": {
