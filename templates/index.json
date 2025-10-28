@@ -48,7 +48,7 @@
           "type": "heading",
           "settings": {
             "heading": "Refined craftsmanship, honest ingredients, and timeless desserts — made to celebrate every moment.",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         },
         "text_zDgraN": {
@@ -68,8 +68,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-cfad9b27-eb14-4445-8574-e9fa279e86d8",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 32,
+        "padding_bottom": 28
       }
     },
     "featured_collections_LNBww8": {
