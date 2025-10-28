@@ -24,7 +24,7 @@
         "announcement_MnngaF": {
           "type": "announcement",
           "settings": {
-            "text": "Next Day Delivery",
+            "text": "Next Day Delivery Across Banglore",
             "link": ""
           }
         }
@@ -35,7 +35,7 @@
       ],
       "settings": {
         "auto_rotate": true,
-        "change_slides_speed": 5,
+        "change_slides_speed": 3,
         "color_scheme": "scheme-f1992aac-b840-4d85-ad56-265c3cc18086",
         "show_line_separator": true,
         "show_social": false,
