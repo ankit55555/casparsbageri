@@ -56,30 +56,17 @@
           "settings": {
             "text": "<p>Delivering across Bangalore</p>"
           }
-        },
-        "button_URDppQ": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
         "heading_XDaiq4",
-        "text_zDgraN",
-        "button_URDppQ"
+        "text_zDgraN"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-f1992aac-b840-4d85-ad56-265c3cc18086",
+        "color_scheme": "scheme-cfad9b27-eb14-4445-8574-e9fa279e86d8",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
