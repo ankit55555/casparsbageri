@@ -41,6 +41,50 @@
       "disabled": true,
       "settings": {}
     },
+    "rich_text_LXynTT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XDaiq4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Refined craftsmanship, honest ingredients, and timeless desserts — made to celebrate every moment.",
+            "heading_size": "h1"
+          }
+        },
+        "text_zDgraN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Delivering across Bangalore</p>"
+          }
+        },
+        "button_URDppQ": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XDaiq4",
+        "text_zDgraN",
+        "button_URDppQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-f1992aac-b840-4d85-ad56-265c3cc18086",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_collections_LNBww8": {
       "type": "featured-collections",
       "blocks": {
@@ -288,6 +332,7 @@
   "order": [
     "two_section_9MeMwr",
     "our_commitments_rjnhCi",
+    "rich_text_LXynTT",
     "featured_collections_LNBww8",
     "video_JkcEKC",
     "customer_reviews_3x8brg",
