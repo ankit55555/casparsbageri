@@ -101,6 +101,7 @@
         },
         "collection_C3aYRC": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "pantry"
           }
@@ -119,7 +120,7 @@
         "heading_size": "h1",
         "description": "",
         "description_style": "body",
-        "columns_desktop": 5,
+        "columns_desktop": 4,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
