@@ -104,6 +104,12 @@
           "settings": {
             "collection": "pantry"
           }
+        },
+        "collection_iHJBqw": {
+          "type": "collection",
+          "settings": {
+            "collection": "winter-edit"
+          }
         }
       },
       "block_order": [
@@ -111,7 +117,8 @@
         "collection_7jwWkc",
         "collection_hwXwgf",
         "collection_GbM3kf",
-        "collection_C3aYRC"
+        "collection_C3aYRC",
+        "collection_iHJBqw"
       ],
       "name": "Show Collections",
       "settings": {
