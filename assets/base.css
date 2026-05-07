@@ -3880,6 +3880,9 @@ details-disclosure > details {
 .wa-floating-chat__toggle.is-open .icon-close {
   display: block;
 }
+.shopify-section-group-header-group .page-width {
+    overflow: unset;
+}
 
 @media screen and (max-width: 749px) {
   .wa-floating-chat {
