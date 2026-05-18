@@ -16,7 +16,6 @@
       "blocks": {
         "announcement-bar-0": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "FREE DELIVERY ACROSS BANGALORE ON ORDER VALUE OF RS.2000",
             "link": ""
