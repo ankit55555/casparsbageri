@@ -532,6 +532,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }
         });
       });
+
+      (function () {
+  function isCartPage() {
+    return /(^|\/)cart\/?$/.test(window.location.pathname);
+  }
+
+  function rerunDisableCheckout() {
+    if (!isCartPage()) return;
+    if (typeof window.dingdoongDisableCheckoutButton !== 'function') return;
+    try {
+      window.dingdoongDisableCheckoutButton();
+    } catch (e) {
+      console.error('[DingDoong] rerun disable checkout failed', e);
+    }
+  }
+
+  window.addEventListener('pageshow', function (event) {
+    var nav = performance.getEntriesByType &&
+      performance.getEntriesByType('navigation')[0];
+    var isBackForward = event.persisted || (nav && nav.type === 'back_forward');
+    if (isBackForward) {
+      setTimeout(rerunDisableCheckout, 300);
+    }
+  });
+})();
+
     </script>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH6M4SZZ"
