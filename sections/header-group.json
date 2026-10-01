@@ -14,6 +14,13 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_gUnQbx": {
+          "type": "announcement",
+          "settings": {
+            "text": "PLACE YOUR ORDER BEFORE 4PM FOR NEXT DAY DELIVERY",
+            "link": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -30,6 +37,7 @@
         }
       },
       "block_order": [
+        "announcement_gUnQbx",
         "announcement-bar-0",
         "announcement_MnngaF"
       ],
